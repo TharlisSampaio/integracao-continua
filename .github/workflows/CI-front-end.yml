@@ -18,6 +18,7 @@ jobs:
      with:
        node-version: 16
    - name: instalando dependencias
+     working-directory: front-end/
      run: npm install
    - name: Compilation, Test
      working-directory: front-end/
