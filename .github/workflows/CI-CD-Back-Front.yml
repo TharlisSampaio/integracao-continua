@@ -9,32 +9,32 @@ on:
  workflow_dispatch:
  
 jobs:
- test:
-  runs-on: ubuntu-latest
-  steps:
-   - uses: actions/checkout@v3
-   - name: Set up node
-     uses: actions/setup-node@v3
-     with:
-       node-version: 16
-   - name: instalando dependencias
-     working-directory: front-end/
-     run: npm install
-   - name: Compilation, Test
-     working-directory: front-end/
-     run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-#  deploy:
-#    needs: test
-#    runs-on: ubuntu-latest
-   - name: Deploy Railway
-   - uses: actions/checkout@v3
-   - uses: actions/setup-node@v3
-     with:
-       node-version: 16
-   - name: Instalação do cliente Railway
-     run: npm install -g @railway/cli
-   - name: Deploy
-     working-directory: front-end/dist/sgcmapp
-     run: railway up --detach --service sgcm-tharlis-front
-     env:
-       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+   test:
+     runs-on: ubuntu-latest
+     steps:
+      - uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: instalando dependencias
+        working-directory: front-end/
+        run: npm install
+      - name: Compilation, Test
+        working-directory: front-end/
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+   #  deploy:
+   #    needs: test
+   #    runs-on: ubuntu-latest
+      - name: Deploy Railway
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Instalação do cliente Railway
+        run: npm install -g @railway/cli
+      - name: Deploy
+        working-directory: front-end/dist/sgcmapp
+        run: railway up --detach --service sgcm-tharlis-front
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
