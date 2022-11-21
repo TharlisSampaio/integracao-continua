@@ -6,8 +6,8 @@ on:
    - 'main'
   paths:
    - 'front-end/**'
- workflow_dispatch:
-
+ workflow_call:
+ 
 jobs:
  test:
   runs-on: ubuntu-latest
