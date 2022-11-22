@@ -1,4 +1,4 @@
-name: CI-BUILD
+name: CI-BUILD-Daniel
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
           node-version: '16'
       - name: instalação de dependencias
         working-directory: front-end/
-        run: npm clean install
+        run: npm clean-install
       - name: Test
         working-directory: back-end/
         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
