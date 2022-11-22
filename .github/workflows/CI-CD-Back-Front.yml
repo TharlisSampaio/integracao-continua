@@ -28,8 +28,9 @@ jobs:
   #     runs-on: ubuntu-latest
   #     steps:
       - name: Deploy Railway
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v3
+      - name: Action Node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Instalação do cliente Railway
